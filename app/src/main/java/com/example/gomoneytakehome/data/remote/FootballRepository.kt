@@ -1,10 +1,9 @@
 package com.example.gomoneytakehome.data.remote
 
 import com.example.gomoneytakehome.data.ApiClient
+import com.example.gomoneytakehome.data.ApiClient.api
 
-class FootballRepository(
-    val api: FootballService = ApiClient.retrofit.create(FootballService::class.java)
-) {
+class FootballRepository {
 
     suspend fun getAllCompetition() = api.getAllCompetition()
 }

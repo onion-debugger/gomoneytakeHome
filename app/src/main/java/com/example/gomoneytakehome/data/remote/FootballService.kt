@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface FootballService {
 
     @GET("competitions")
-    suspend fun getAllCompetition(): Response<List<CompetitionModel>>
+    suspend fun getAllCompetition(): Response<CompetitionModel>
 }

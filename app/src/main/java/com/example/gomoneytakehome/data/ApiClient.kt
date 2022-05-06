@@ -20,5 +20,5 @@ object ApiClient {
             .build()
     }
 
-
+    val api = retrofit.create(FootballService::class.java)
 }

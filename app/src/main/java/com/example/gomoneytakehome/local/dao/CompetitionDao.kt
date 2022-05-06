@@ -1,4 +1,7 @@
 package com.example.gomoneytakehome.local.dao
 
-interface CompetitionDao {
-}
+import androidx.room.Dao
+
+//@Dao
+//interface CompetitionDao {
+//}

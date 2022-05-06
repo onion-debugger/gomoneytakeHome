@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Football Live</string>
+    <string name="choose_league">Choose League</string>
+    <string name="next_match">Next Match</string>
+    <string name="last_match">Last Match</string>
+    <string name="team_logo">Team Logo</string>
+    <string name="versus">VS</string>
+</resources>

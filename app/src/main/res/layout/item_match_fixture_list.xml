@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="16dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/first_team_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background"
+            android:contentDescription="@string/team_logo" />
+
+        <TextView
+            android:id="@+id/first_team_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Team One"
+            app:layout_constraintEnd_toEndOf="@+id/first_team_iv"
+            app:layout_constraintStart_toStartOf="@+id/first_team_iv"
+            app:layout_constraintTop_toBottomOf="@+id/first_team_iv" />
+
+        <TextView
+            android:id="@+id/versus_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/versus"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/second_team_name_tv"
+            app:layout_constraintEnd_toStartOf="@+id/second_team_iv"
+            app:layout_constraintStart_toEndOf="@+id/first_team_iv"
+            app:layout_constraintTop_toTopOf="@+id/first_team_iv"
+            app:layout_constraintVertical_bias="0.64" />
+
+        <ImageView
+            android:id="@+id/second_team_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background"
+            android:contentDescription="@string/team_logo"/>
+
+        <TextView
+            android:id="@+id/second_team_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Team Two"
+            app:layout_constraintEnd_toEndOf="@+id/second_team_iv"
+            app:layout_constraintStart_toStartOf="@+id/second_team_iv"
+            app:layout_constraintTop_toBottomOf="@+id/second_team_iv" />
+
+        <TextView
+            android:id="@+id/date_of_fixture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:text="Sat 13 Oct 2018"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/time_of_fixture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            tools:text="21:00"
+            app:layout_constraintEnd_toEndOf="@+id/date_of_fixture_tv"
+            app:layout_constraintStart_toStartOf="@+id/date_of_fixture_tv"
+            app:layout_constraintTop_toBottomOf="@+id/date_of_fixture_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
