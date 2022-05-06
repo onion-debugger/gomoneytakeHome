@@ -13,6 +13,6 @@ interface CompetitionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCompetitions(competition: CompetitionsEntity)
 
-    @Query("Select * FROM Competition ORDER BY name DESC")
+    @Query("Select * FROM Competition")
     fun getAllCompetitions() : LiveData<CompetitionsEntity>
 }

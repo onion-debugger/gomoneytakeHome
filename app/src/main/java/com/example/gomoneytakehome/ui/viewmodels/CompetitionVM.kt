@@ -18,14 +18,15 @@ class CompetitionVM(
         fetchCompetitions()
     }
 
-    var response: MutableLiveData<NetworkResult<CompetitionsEntity>> = MutableLiveData()
+    var response: MutableLiveData<NetworkResult<CompetitionModel>> = MutableLiveData()
 
     private fun fetchCompetitions() {
         viewModelScope.launch {
             try {
-                val res = footballRepository.loadLocallyStoredCompetitions()
-                response.value = NetworkResult.Success(res.value!!)
+                val res = footballRepository.getAllCompetition()
+                response.value = NetworkResult.Success(res.body()!!)
             } catch (e: Throwable) {
+                response.value = NetworkResult.Exception(e)
             }
         }
 

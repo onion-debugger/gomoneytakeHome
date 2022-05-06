@@ -1,8 +1,6 @@
 package com.example.gomoneytakehome.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.map
 import com.example.gomoneytakehome.data.ApiClient.api
 import com.example.gomoneytakehome.data.model.Competition
 import com.example.gomoneytakehome.data.model.CompetitionModel
@@ -44,7 +42,5 @@ class FootballRepository(private val competitionDao: CompetitionDao) {
     fun loadLocallyStoredCompetitions() : LiveData<CompetitionsEntity> {
         return competitionDao.getAllCompetitions()
     }
-
-
 
 }
