@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 when (response) {
                     is NetworkResult.Success -> {
                         response.data.let { result ->
-                            Toast.makeText(this, "${result.competitions}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, result.name, Toast.LENGTH_LONG).show()
                         }
                     }
 

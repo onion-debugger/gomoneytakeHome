@@ -2,9 +2,11 @@ package com.example.gomoneytakehome.ui.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.gomoneytakehome.data.model.CompetitionModel
 import com.example.gomoneytakehome.data.FootballRepository
+import com.example.gomoneytakehome.local.entity.CompetitionsEntity
 import com.example.gomoneytakehome.util.NetworkResult
 import kotlinx.coroutines.launch
 
@@ -16,15 +18,14 @@ class CompetitionVM(
         fetchCompetitions()
     }
 
-    var response: MutableLiveData<NetworkResult<CompetitionModel>> = MutableLiveData()
+    var response: MutableLiveData<NetworkResult<CompetitionsEntity>> = MutableLiveData()
 
     private fun fetchCompetitions() {
         viewModelScope.launch {
             try {
                 val res = footballRepository.loadLocallyStoredCompetitions()
-                response.value = NetworkResult.Success(res)
+                response.value = NetworkResult.Success(res.value!!)
             } catch (e: Throwable) {
-                response.value = NetworkResult.Exception(e)
             }
         }
 
