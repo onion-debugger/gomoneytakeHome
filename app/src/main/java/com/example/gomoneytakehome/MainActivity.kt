@@ -2,6 +2,8 @@ package com.example.gomoneytakehome
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CompetitionVM
     private var binding: ActivityMainBinding? = null
+    private lateinit var spinnerAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,12 @@ class MainActivity : AppCompatActivity() {
                 when (response) {
                     is NetworkResult.Success -> {
                         response.data.let { result ->
-                            Toast.makeText(this, "${result.competitions}", Toast.LENGTH_LONG).show()
+                            val array: ArrayList<String> = ArrayList()
+                            for (competition in result.competitions) {
+                                array.add(competition.name)
+                            }
+                            spinnerAdapter = ArrayAdapter(this, R.layout.spinner_drop_down, array)
+                            binding?.competitionSpinner?.adapter = spinnerAdapter
                         }
                     }
 
