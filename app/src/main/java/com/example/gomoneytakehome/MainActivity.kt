@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.gomoneytakehome.databinding.ActivityMainBinding
+import com.example.gomoneytakehome.local.FootballDatabase
 import com.example.gomoneytakehome.ui.viewmodels.CompetitionVM
 import com.example.gomoneytakehome.ui.viewmodels.VMFactory
 import com.example.gomoneytakehome.util.NetworkResult
@@ -14,16 +15,19 @@ import com.example.gomoneytakehome.util.NetworkResult
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CompetitionVM
-    private lateinit var binding: ActivityMainBinding
+    private var binding: ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding!!.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding!!.toolbar)
 
-        viewModel = ViewModelProvider(this, VMFactory())[CompetitionVM::class.java]
+        val application = this.application
+        val dao = FootballDatabase.getInstance(application).competitionDao
+
+        viewModel = ViewModelProvider(this, VMFactory(dao))[CompetitionVM::class.java]
 
         requestCompetitionData()
 
@@ -49,6 +53,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    }
+    } }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
